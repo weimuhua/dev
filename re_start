@@ -1,0 +1,5 @@
+#!/bin/sh
+
+adb shell pm clear cn.opda.a.phonoalbumshoushou
+
+adb shell am start cn.opda.a.phonoalbumshoushou/cn.com.opda.android.mainui.MainActivity
