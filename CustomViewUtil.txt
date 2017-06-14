@@ -1,0 +1,24 @@
+private int measureDimension(int size, int measureSpec){
+    int result = size;
+    int specMode = MeasureSpec.getMode(measureSpec);
+    int specSize = MeasureSpec.getSize(measureSpec);
+    switch {
+        case MeasureSpec.EXACTLY:
+            result = size;
+            break;
+        case MeasureSpec.AT_MOST:
+            result = Math.min(size, specSize);
+            break;
+        case MeasureSpec.UNSPECIFIED:
+            result = size;
+            break;
+    }
+    return result;
+}
+
+@Override
+protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+    int width  = measureDimension(mWidth, widthMeasureSpec);//mWidth是理想的宽度，可以由style赋值而来
+    int height = measureDimension(mHeight, heightMeasureSpec);//mHeight是理想的高度，可以由style赋值而来
+    setMeasuredDimension(width, height);
+}
